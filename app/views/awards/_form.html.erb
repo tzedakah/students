@@ -21,7 +21,7 @@
   </div>
   <div class="field">
     <%= f.label :student_id %><br />
-    <%= f.number_field :student_id %>
+    <%= f.select :student_id, Student.find(:all , :order => "family_name, given_name").collect {|s| [s.name, s.id]} %>
   </div>
   <div class="actions">
     <%= f.submit %>
